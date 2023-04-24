@@ -38,22 +38,22 @@ namespace LineComparisonComputationProg
             Console.Write("Enter the y-coordinate of the second point of line 2: ");
             double y2_l2 = double.Parse(Console.ReadLine());
 
-            // Calculate the length of line 1 and line 2 using the distance formula
-            double length_l1 = Math.Sqrt(Math.Pow(x2_l1 - x1_l1, 2) + Math.Pow(y2_l1 - y1_l1, 2));
-            double length_l2 = Math.Sqrt(Math.Pow(x2_l2 - x1_l2, 2) + Math.Pow(y2_l2 - y1_l2, 2));
+            // Create Line objects
+            Line line1 = new Line(x1_l1, y1_l1, x2_l1, y2_l1);
+            Line line2 = new Line(x1_l2, y1_l2, x2_l2, y2_l2);
 
             // Compare the end points of line 1 and line 2
-            if (length_l1 == length_l2)
+            if (line1.Equals(line2))
             {
-                Console.WriteLine("Line 1 and Line 2 are equal in length");
+                Console.WriteLine("Line 1 and Line 2 are equal");
             }
-            else if (length_l1 > length_l2)
+            else if (line1.GreaterThan(line2))
             {
-                Console.WriteLine("Line 1 is greater than Line 2 in length");
+                Console.WriteLine("Line 1 is greater than Line 2");
             }
             else
             {
-                Console.WriteLine("Line 1 is less than Line 2 in length");
+                Console.WriteLine("Line 1 is less than Line 2");
             }
         }
     }
